@@ -18,8 +18,5 @@
     "defaultPassword": "s3cret"
   },
   "experimentalStudio": true,
-  "ignoreTestFiles": [
-    "**/1-getting-started/*.js",
-    "**/2-advanced-examples/*.js"
-  ]
+  "ignoreTestFiles": ["**/1-getting-started/*.js", "**/2-advanced-examples/*.js"]
 }

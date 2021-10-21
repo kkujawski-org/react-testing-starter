@@ -1,11 +1,11 @@
-import React from "react";
-import { get } from "lodash/fp";
-import { useTheme, makeStyles, useMediaQuery, Divider } from "@material-ui/core";
-import { InfiniteLoader, List, Index } from "react-virtualized";
-import "react-virtualized/styles.css"; // only needs to be imported once
+import React from 'react';
+import { get } from 'lodash/fp';
+import { useTheme, makeStyles, useMediaQuery, Divider } from '@material-ui/core';
+import { InfiniteLoader, List, Index } from 'react-virtualized';
+import 'react-virtualized/styles.css'; // only needs to be imported once
 
-import TransactionItem from "./TransactionItem";
-import { TransactionResponseItem, TransactionPagination } from "../models";
+import TransactionItem from './TransactionItem';
+import { TransactionResponseItem, TransactionPagination } from '../models';
 
 export interface TransactionListProps {
   transactions: TransactionResponseItem[];
@@ -15,11 +15,11 @@ export interface TransactionListProps {
 
 const useStyles = makeStyles((theme) => ({
   transactionList: {
-    width: "100%",
-    minHeight: "80vh",
-    display: "flex",
-    overflow: "auto",
-    flexDirection: "column",
+    width: '100%',
+    minHeight: '80vh',
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
   },
 }));
 
@@ -30,8 +30,8 @@ const TransactionInfiniteList: React.FC<TransactionListProps> = ({
 }) => {
   const classes = useStyles();
   const theme = useTheme();
-  const isXsBreakpoint = useMediaQuery(theme.breakpoints.down("xs"));
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isXsBreakpoint = useMediaQuery(theme.breakpoints.down('xs'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const itemCount = pagination.hasNextPages ? transactions.length + 1 : transactions.length;
 
@@ -52,7 +52,7 @@ const TransactionInfiniteList: React.FC<TransactionListProps> = ({
       return (
         <div key={key} style={style}>
           <TransactionItem transaction={transaction} />
-          <Divider variant={isMobile ? "fullWidth" : "inset"} />
+          <Divider variant={isMobile ? 'fullWidth' : 'inset'} />
         </div>
       );
     }

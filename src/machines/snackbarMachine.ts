@@ -1,4 +1,4 @@
-import { Machine, assign } from "xstate";
+import { Machine, assign } from 'xstate';
 
 export interface SnackbarSchema {
   states: {
@@ -7,32 +7,32 @@ export interface SnackbarSchema {
   };
 }
 
-export type SnackbarEvents = { type: "SHOW" } | { type: "HIDE" };
+export type SnackbarEvents = { type: 'SHOW' } | { type: 'HIDE' };
 
 export interface SnackbarContext {
-  severity?: "success" | "info" | "warning" | "error";
+  severity?: 'success' | 'info' | 'warning' | 'error';
   message?: string;
 }
 
 export const snackbarMachine = Machine<SnackbarContext, SnackbarSchema, SnackbarEvents>(
   {
-    id: "snackbar",
-    initial: "invisible",
+    id: 'snackbar',
+    initial: 'invisible',
     context: {
       severity: undefined,
       message: undefined,
     },
     states: {
       invisible: {
-        entry: "resetSnackbar",
-        on: { SHOW: "visible" },
+        entry: 'resetSnackbar',
+        on: { SHOW: 'visible' },
       },
       visible: {
-        entry: "setSnackbar",
-        on: { HIDE: "invisible" },
+        entry: 'setSnackbar',
+        on: { HIDE: 'invisible' },
         after: {
           // after 3 seconds, transition to invisible
-          3000: "invisible",
+          3000: 'invisible',
         },
       },
     },
