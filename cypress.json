@@ -1,19 +1,25 @@
 {
   "baseUrl": "http://localhost:3000",
-  "projectId": "7s5okt",
+  "projectId": "fbxzug",
   "viewportHeight": 1000,
   "viewportWidth": 1280,
+  "video": false,
   "retries": {
-    "runMode": 2,
+    "runMode": 1,
     "openMode": 1
   },
   "env": {
     "apiUrl": "http://localhost:3001",
     "mobileViewportWidthBreakpoint": 414,
-    "coverage": false,
+    "coverage": true,
     "codeCoverage": {
       "url": "http://localhost:3001/__coverage__"
-    }
+    },
+    "defaultPassword": "s3cret"
   },
-  "experimentalStudio": true
+  "experimentalStudio": true,
+  "ignoreTestFiles": [
+    "**/1-getting-started/*.js",
+    "**/2-advanced-examples/*.js"
+  ]
 }

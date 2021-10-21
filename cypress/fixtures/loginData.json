@@ -1,0 +1,6 @@
+{
+    "type": "LOGIN",
+    "username": "johndoe",
+    "password": "s3cret",
+    "remember": true
+}
