@@ -75,9 +75,9 @@ jobs:
           wait-on-timeout: 120
           browser: chrome
           record: false
-          parallel: false
-          group: "UI - Chrome"
-          spec: cypress/integration/tsh/*
+          # parallel: false
+          # group: "UI - Chrome"
+         spec: cypress/integration/tsh/*
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
