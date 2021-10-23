@@ -74,8 +74,8 @@ jobs:
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           browser: chrome
-          record: false
-          # group: "UI - Chrome"
+          record: true
+          group: "Chrome UI - Tests"
           spec: cypress/integration/tsh/*
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
