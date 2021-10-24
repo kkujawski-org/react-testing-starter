@@ -36,6 +36,10 @@ export default (on, config) => {
     return Array.isArray(query) ? Promise.map(query, fetchData) : fetchData(query);
   };
 
+  const percyHealthCheck = require('@percy/cypress/task');
+
+  on('task', percyHealthCheck);
+
   on('task', {
     async 'db:seed'() {
       // seed database with test data
