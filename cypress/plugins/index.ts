@@ -24,8 +24,18 @@ import Promise from 'bluebird';
 dotenv.config({ path: '.env.local' });
 dotenv.config();
 
+const browserify = require('@cypress/browserify-preprocessor');
+const cucumber = require('cypress-cucumber-preprocessor').default;
+const resolve = require('resolve');
+
+
 export default (on, config) => {
   const testDataApiEndpoint = `${config.env.apiUrl}/testData`;
+
+  const options = {
+    ...browserify.defaultOptions,
+    typescript: resolve.sync('typescript', { baseDir: config.projectRoot }),
+  };
 
   const queryDatabase = ({ entity, query }, callback) => {
     const fetchData = async (attrs: any) => {
@@ -35,6 +45,8 @@ export default (on, config) => {
 
     return Array.isArray(query) ? Promise.map(query, fetchData) : fetchData(query);
   };
+
+  on('file:preprocessor', cucumber(options));
 
   on('task', {
     async 'db:seed'() {
